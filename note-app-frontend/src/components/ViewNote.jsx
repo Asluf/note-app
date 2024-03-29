@@ -28,7 +28,9 @@ const ViewNote = () => {
       .get(apiUrl, {
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         },
+        withCredentials: true
       })
       .then((response) => {
         if (filterTerm) {
@@ -48,7 +50,9 @@ const ViewNote = () => {
       .delete(`https://note-app-api-xi.vercel.app/api/deleteNote/${noteId}`, {
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         },
+        withCredentials: true
       })
       .then(() => {
         fetchData();
@@ -73,7 +77,9 @@ const ViewNote = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
           },
+          withCredentials: true
         })
       .then(() => {
         fetchData();
@@ -113,7 +119,9 @@ const ViewNote = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
           },
+          withCredentials: true
         }
       );
 
@@ -160,7 +168,9 @@ const ViewNote = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
           },
+          withCredentials: true
         }
       );
 
