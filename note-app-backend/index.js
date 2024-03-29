@@ -22,6 +22,8 @@ app.use(cors(
   }
 ))
 
+app.use(express.json());
+
 
 var port = process.env.PORT || 6000;
 
