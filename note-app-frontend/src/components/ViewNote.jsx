@@ -51,7 +51,6 @@ const ViewNote = () => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
         },
-        withCredentials: true
       })
       .then(() => {
         fetchData();
@@ -78,7 +77,6 @@ const ViewNote = () => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
           },
-          withCredentials: true
         })
       .then(() => {
         fetchData();
@@ -120,7 +118,6 @@ const ViewNote = () => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
           },
-          withCredentials: true
         }
       );
 
@@ -169,7 +166,6 @@ const ViewNote = () => {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
           },
-          withCredentials: true
         }
       );
 
