@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 // };
 
 // app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(cors(
   {
     origin: ["https://note-app-frontend-nine.vercel.app"],
