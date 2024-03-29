@@ -5,22 +5,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-// const corsOptions = {
-//   origin: 'http://localhost:3000', 
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true,
-//   optionsSuccessStatus: 204,
-// };
-
-// app.use(cors(corsOptions));
-// app.use(cors());
-app.use(cors(
-  {
-    origin: ["https://note-app-frontend-nine.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  }
-))
+app.use(cors());
 
 app.use(express.json());
 
