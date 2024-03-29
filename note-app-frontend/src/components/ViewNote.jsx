@@ -21,8 +21,8 @@ const ViewNote = () => {
 
   const fetchData = () => {
     const apiUrl = filterTerm
-      ? `https://note-app-api-xi.vercel.app/api/getSearchNote?title=${filterTerm}`
-      : "https://note-app-api-xi.vercel.app/api/getAllNote";
+      ? `https://27e4-175-157-22-79.ngrok-free.app/api/getSearchNote?title=${filterTerm}`
+      : "https://27e4-175-157-22-79.ngrok-free.app/api/getAllNote";
 
     axios
       .get(apiUrl, {
@@ -47,7 +47,7 @@ const ViewNote = () => {
 
   const deleteNote = (noteId) => {
     axios
-      .delete(`https://note-app-api-xi.vercel.app/api/deleteNote/${noteId}`, {
+      .delete(`https://27e4-175-157-22-79.ngrok-free.app/api/deleteNote/${noteId}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
@@ -72,7 +72,7 @@ const ViewNote = () => {
 
   const handleFavorite = (noteId, isFavorite) => {
     axios
-      .put(`https://note-app-api-xi.vercel.app/api/handleFavorite/${noteId}`,
+      .put(`https://27e4-175-157-22-79.ngrok-free.app/api/handleFavorite/${noteId}`,
         { isFavorite: isFavorite },
         {
           headers: {
@@ -114,7 +114,7 @@ const ViewNote = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://note-app-api-xi.vercel.app/api/createNote",
+        "https://27e4-175-157-22-79.ngrok-free.app/api/createNote",
         formData,
         {
           headers: {
@@ -163,7 +163,7 @@ const ViewNote = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://note-app-api-xi.vercel.app/api/updateNote/${noteId}`,
+        `https://27e4-175-157-22-79.ngrok-free.app/api/updateNote/${noteId}`,
         formData,
         {
           headers: {
