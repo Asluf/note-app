@@ -21,8 +21,8 @@ const ViewNote = () => {
 
   const fetchData = () => {
     const apiUrl = filterTerm
-      ? `http://localhost:5000/api/getSearchNote?title=${filterTerm}`
-      : "http://localhost:5000/api/getAllNote";
+      ? `https://wild-puce-blackbuck-fez.cyclic.app/api/getSearchNote?title=${filterTerm}`
+      : "https://wild-puce-blackbuck-fez.cyclic.app/api/getAllNote";
 
     axios
       .get(apiUrl, {
@@ -46,7 +46,7 @@ const ViewNote = () => {
 
   const deleteNote = (noteId) => {
     axios
-      .delete(`http://localhost:5000/api/deleteNote/${noteId}`, {
+      .delete(`https://wild-puce-blackbuck-fez.cyclic.app/api/deleteNote/${noteId}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
@@ -71,7 +71,7 @@ const ViewNote = () => {
 
   const handleFavorite = (noteId, isFavorite) => {
     axios
-      .put(`http://localhost:5000/api/handleFavorite/${noteId}`,
+      .put(`https://wild-puce-blackbuck-fez.cyclic.app/api/handleFavorite/${noteId}`,
         { isFavorite: isFavorite },
         {
           headers: {
@@ -113,7 +113,7 @@ const ViewNote = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/createNote",
+        "https://wild-puce-blackbuck-fez.cyclic.app/api/createNote",
         formData,
         {
           headers: {
@@ -162,7 +162,7 @@ const ViewNote = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/updateNote/${noteId}`,
+        `https://wild-puce-blackbuck-fez.cyclic.app/api/updateNote/${noteId}`,
         formData,
         {
           headers: {
