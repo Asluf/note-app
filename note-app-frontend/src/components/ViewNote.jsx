@@ -21,8 +21,8 @@ const ViewNote = () => {
 
   const fetchData = () => {
     const apiUrl = filterTerm
-      ? `https://wild-puce-blackbuck-fez.cyclic.app/api/getSearchNote?title=${filterTerm}`
-      : "https://wild-puce-blackbuck-fez.cyclic.app/api/getAllNote";
+      ? `http://localhost:5000/api/getSearchNote?title=${filterTerm}`
+      : "http://localhost:5000/api/getAllNote";
 
     axios
       .get(apiUrl, {
@@ -46,7 +46,7 @@ const ViewNote = () => {
 
   const deleteNote = (noteId) => {
     axios
-      .delete(`https://wild-puce-blackbuck-fez.cyclic.app/api/deleteNote/${noteId}`, {
+      .delete(`http://localhost:5000/api/deleteNote/${noteId}`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*"
@@ -70,7 +70,7 @@ const ViewNote = () => {
 
   const handleFavorite = (noteId, isFavorite) => {
     axios
-      .put(`https://wild-puce-blackbuck-fez.cyclic.app/api/handleFavorite/${noteId}`,
+      .put(`http://localhost:5000/api/handleFavorite/${noteId}`,
         { isFavorite: isFavorite },
         {
           headers: {
@@ -106,12 +106,12 @@ const ViewNote = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  // create new note
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://wild-puce-blackbuck-fez.cyclic.app/api/createNote",
+        "http://localhost:5000/api/createNote",
         formData,
         {
           headers: {
@@ -154,12 +154,12 @@ const ViewNote = () => {
   const handleCloseUpdateDialog = () => {
     setIsUpdateVisible(false);
   };
-
+  // update note
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://wild-puce-blackbuck-fez.cyclic.app/api/updateNote/${noteId}`,
+        `http://localhost:5000/api/updateNote/${noteId}`,
         formData,
         {
           headers: {
@@ -197,6 +197,7 @@ const ViewNote = () => {
   return (
     <div className="container mx-auto mt-8 flex flex-col items-center">
       <h1 className="text-2xl font-bold text-center mb-5">MY NOTES</h1>
+      {/* Add button */}
       <button
         type="button"
         onClick={handleAddClick}
@@ -210,6 +211,7 @@ const ViewNote = () => {
       >
         <FontAwesomeIcon icon={faPlus} className="me-2" /> ADD
       </button>
+      {/* Sraech button */}
       <div
         className="flex mb-2 bg-white p-5"
         style={{
@@ -337,6 +339,11 @@ const ViewNote = () => {
         </div>
       )}
       {/* Edit modal end */}
+
+
+
+
+
       {filterTerm ? (
         (filterNotes.length === 0) ? (
           <div className="my-5" style={{ width: "750px" }}>
@@ -406,7 +413,7 @@ const ViewNote = () => {
 
       ) : (
         <div style={{ width: '100%' }}>
-          <h2 className="text-2xl font-bold mb-4 text-blue-800">Favourites</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-800">Favorites</h2>
           <div className="container mx-auto mt-8 grid grid-cols-3 gap-8">
             {favoriteNotes.map((note) => (
               <div key={note._id} className="mb-4">
